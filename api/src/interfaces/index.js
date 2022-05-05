@@ -1,0 +1,6 @@
+const USER_ROLE_TYPES = {
+  ADMIN: 'ADMIN',
+  USER: 'USER',
+};
+
+exports.USER_ROLE_TYPES = USER_ROLE_TYPES;

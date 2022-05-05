@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "the-diabetic-compass": {
+      "hosting": {
+        "web": [
+          "the-diabetic-compass"
+        ]
+      }
+    }
+  }
+}
