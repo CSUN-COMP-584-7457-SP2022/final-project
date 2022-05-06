@@ -1,0 +1,50 @@
+<app-header></app-header>
+
+<div class="container-fluid">
+  <h2>Diabetes Learning Resources</h2>
+
+  <div class="card">
+    <div class="card-header">
+      <ul class="nav nav-tabs card-header-tabs flex-row justify-content-around">
+        <li class="nav-item" *ngFor="let tab of RESOURCE_TABS">
+          <a
+            class="nav-link"
+            style="cursor: pointer"
+            [ngClass]="{ active: isTabActive(tab.id) }"
+            (click)="setActiveTab(tab.id)"
+            >{{ tab.name }}</a
+          >
+        </li>
+      </ul>
+    </div>
+    <div class="card-body">
+      <ng-container *ngIf="activeTab.id === 'whatIsDiabetes'">
+        <app-what-is-diabetes></app-what-is-diabetes>
+      </ng-container>
+      <ng-container *ngIf="activeTab.id === 'riskFactors'">
+        <app-risk-factors></app-risk-factors>
+      </ng-container>
+      <ng-container *ngIf="activeTab.id === 'symptoms'">
+        <app-symptoms></app-symptoms>
+      </ng-container>
+      <ng-container *ngIf="activeTab.id === 'prediabetes'">
+        <app-prediabetes></app-prediabetes>
+      </ng-container>
+      <ng-container *ngIf="activeTab.id === 'typeOneDiabetes'">
+        <app-type-one-diabetes></app-type-one-diabetes>
+      </ng-container>
+      <ng-container *ngIf="activeTab.id === 'typeTwoDiabetes'"
+        ><app-type-two-diabetes></app-type-two-diabetes
+      ></ng-container>
+      <ng-container *ngIf="activeTab.id === 'gestationalDiabetes'"
+        ><app-gestational-diabetes></app-gestational-diabetes
+      ></ng-container>
+      <ng-container *ngIf="activeTab.id === 'testingForDiabetes'"
+        ><app-testing-for-diabetes></app-testing-for-diabetes
+      ></ng-container>
+      <ng-container *ngIf="activeTab.id === 'fastFacts'">
+        <app-fast-facts></app-fast-facts>
+      </ng-container>
+    </div>
+  </div>
+</div>

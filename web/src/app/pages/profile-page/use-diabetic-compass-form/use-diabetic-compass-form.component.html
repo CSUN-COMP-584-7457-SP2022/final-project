@@ -1,0 +1,522 @@
+<form [formGroup]="useDiabeticCompassForm" (ngSubmit)="onSubmit()">
+  <h6>Demographic Information</h6>
+
+  <div class="form-row">
+    <div class="col-3">
+      <div class="form-group">
+        <label for="sex">Sex</label>
+
+        <select class="custom-select" id="sex" formControlName="sex">
+          <option value="">Select your sex</option>
+          <option value="FEMALE">Female</option>
+          <option value="MALE">Male</option>
+        </select>
+      </div>
+    </div>
+    <div class="col-3">
+      <div class="form-group">
+        <label for="ageCategory">Age</label>
+
+        <select
+          class="custom-select"
+          id="ageCategory"
+          formControlName="ageCategory"
+        >
+          <option value="">Select your age category</option>
+          <option value="AGE_18_24">Between 18 and 24</option>
+          <option value="AGE_25_29">Between 25 and 29</option>
+          <option value="AGE_30_34">Between 30 and 34</option>
+          <option value="AGE_35_39">Between 35 and 39</option>
+          <option value="AGE_40_44">Between 40 and 44</option>
+          <option value="AGE_45_49">Between 45 and 49</option>
+          <option value="AGE_50_54">Between 50 and 54</option>
+          <option value="AGE_55_59">Between 55 and 59</option>
+          <option value="AGE_60_64">Between 60 and 64</option>
+          <option value="AGE_65_69">Between 65 and 69</option>
+          <option value="AGE_70_74">Between 70 and 74</option>
+          <option value="AGE_75_79">Between 75 and 79</option>
+          <option value="AGE_80_MORE">Over 80</option>
+        </select>
+      </div>
+    </div>
+    <div class="col-3">
+      <div class="form-group">
+        <label for="educationLevel">Education</label>
+
+        <select
+          class="custom-select"
+          id="educationLevel"
+          formControlName="educationLevel"
+        >
+          <option value="">Select your education level</option>
+          <option value="NONE_OR_KINDERGARTEN">None or Kindergarten</option>
+          <option value="ELEMENTARY">Elementary</option>
+          <option value="HIGH_SCHOOL">High School</option>
+          <option value="HIGH_SCHOOL_GRAD">High School Graduate</option>
+          <option value="COLLEGE_OR_TECH">College or Technical School</option>
+          <option value="COLLEGE_GRAD">College Graduate</option>
+        </select>
+      </div>
+    </div>
+    <div class="col-3">
+      <div class="form-group">
+        <label for="incomeLevel">Income</label>
+
+        <select
+          class="custom-select"
+          id="incomeLevel"
+          formControlName="incomeLevel"
+        >
+          <option value="">Select your income level</option>
+          <option value="LESS_10000">Less than $10,000 per year</option>
+          <option value="LESS_15000">Less than $15,000 per year</option>
+          <option value="LESS_20000">Less than $20,000 per year</option>
+          <option value="LESS_25000">Less than $25,000 per year</option>
+          <option value="LESS_35000">Less than $35,000 per year</option>
+          <option value="LESS_50000">Less than $50,000 per year</option>
+          <option value="LESS_75000">Less than $75,000 per year</option>
+          <option value="MORE_75000">More than $75,000 per year</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <hr />
+
+  <h6>Health Information</h6>
+  <div class="form-row">
+    <div class="col-4">
+      <div class="form-group">
+        <label>Do you have high blood pressure?</label>
+
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="radio"
+            id="hasHighBloodPressure"
+            formControlName="hasHighBloodPressure"
+            value="YES"
+          />
+          <label class="form-check-label">Yes</label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="radio"
+            id="hasHighBloodPressure"
+            formControlName="hasHighBloodPressure"
+            value="NO"
+          />
+          <label class="form-check-label">No</label>
+        </div>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="form-group">
+        <label>Do you have high cholesterol?</label>
+
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="radio"
+            id="hasHighCholesterol"
+            formControlName="hasHighCholesterol"
+            value="YES"
+          />
+          <label class="form-check-label">Yes</label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="radio"
+            id="hasHighCholesterol"
+            formControlName="hasHighCholesterol"
+            value="NO"
+          />
+          <label class="form-check-label">No</label>
+        </div>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="form-group">
+        <label
+          >Have you checked your cholesterol within the last 5 years?</label
+        >
+
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="radio"
+            id="hadCholesterolCheckLastFiveYears"
+            formControlName="hadCholesterolCheckLastFiveYears"
+            value="YES"
+          />
+          <label class="form-check-label">Yes</label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="radio"
+            id="hadCholesterolCheckLastFiveYears"
+            formControlName="hadCholesterolCheckLastFiveYears"
+            value="NO"
+          />
+          <label class="form-check-label">No</label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="col-5">
+      <div class="form-group">
+        <label
+          >Do you have any kind of health care coverage, including health
+          insurance, prepaid plans such as HMO, etc.?</label
+        >
+
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="radio"
+            id="hasHealthCare"
+            formControlName="hasHealthCare"
+            value="YES"
+          />
+          <label class="form-check-label">Yes</label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="radio"
+            id="hasHealthCare"
+            formControlName="hasHealthCare"
+            value="NO"
+          />
+          <label class="form-check-label">No</label>
+        </div>
+      </div>
+    </div>
+    <div class="col-2"></div>
+    <div class="col-5">
+      <div class="form-group">
+        <label
+          >Was there a time in the past 12 months when you needed to see a
+          doctor but could not because of cost?</label
+        >
+
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="radio"
+            id="couldntAffordDoctorVisit"
+            formControlName="couldntAffordDoctorVisit"
+            value="YES"
+          />
+          <label class="form-check-label">Yes</label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="radio"
+            id="couldntAffordDoctorVisit"
+            formControlName="couldntAffordDoctorVisit"
+            value="NO"
+          />
+          <label class="form-check-label">No</label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="col-6">
+      <div class="form-group">
+        <label for="bodyMassIndex">Enter your Body Mass Index (BMI)</label>
+        <input
+          type="number"
+          class="form-control"
+          id="bodyMassIndex"
+          formControlName="bodyMassIndex"
+          placeholder="Enter your BMI"
+        />
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="form-group">
+        <label for="generalHeathRating"
+          >Would you say that in general your health is:</label
+        >
+
+        <select
+          class="custom-select"
+          id="generalHeathRating"
+          formControlName="generalHeathRating"
+        >
+          <option value="">Select your general health level</option>
+          <option value="EXCELLENT">Excellent</option>
+          <option value="VERY_GOOD">Very Good</option>
+          <option value="GOOD">Good</option>
+          <option value="FAIR">Fair</option>
+          <option value="POOR">Poor</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <hr />
+
+  <h6>Lifestyle Information</h6>
+  <div class="form-row">
+    <div class="col-6">
+      <div class="form-group">
+        <label
+          >Are you a heavy drinker? For adult men having more than 14 drinks per
+          week and for adult women having more than 7 drinks per week.</label
+        >
+
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="radio"
+            id="isHeavyDrinker"
+            formControlName="isHeavyDrinker"
+            value="YES"
+          />
+          <label class="form-check-label">Yes</label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="radio"
+            id="isHeavyDrinker"
+            formControlName="isHeavyDrinker"
+            value="NO"
+          />
+          <label class="form-check-label">No</label>
+        </div>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="form-group">
+        <label
+          >Have you smoked at least 100 cigarettes in your entire life? 5 packs
+          = 100 cigarettes.</label
+        >
+
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="radio"
+            id="isSmoker"
+            formControlName="isSmoker"
+            value="YES"
+          />
+          <label class="form-check-label">Yes</label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="radio"
+            id="isSmoker"
+            formControlName="isSmoker"
+            value="NO"
+          />
+          <label class="form-check-label">No</label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="col-6">
+      <div class="form-group">
+        <label>Have (ever been told) you had a stroke?</label>
+
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="radio"
+            id="hadStroke"
+            formControlName="hadStroke"
+            value="YES"
+          />
+          <label class="form-check-label">Yes</label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="radio"
+            id="hadStroke"
+            formControlName="hadStroke"
+            value="NO"
+          />
+          <label class="form-check-label">No</label>
+        </div>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="form-group">
+        <label
+          >Do you have coronary heart disease (CHD) or myocardial infarction
+          (MI)?</label
+        >
+
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="radio"
+            id="hasHeartDiseaseOrAttack"
+            formControlName="hasHeartDiseaseOrAttack"
+            value="YES"
+          />
+          <label class="form-check-label">Yes</label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="radio"
+            id="hasHeartDiseaseOrAttack"
+            formControlName="hasHeartDiseaseOrAttack"
+            value="NO"
+          />
+          <label class="form-check-label">No</label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="col-6">
+      <div class="form-group">
+        <label
+          >Do you have serious difficulty walking or climbing stairs?</label
+        >
+
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="radio"
+            id="hasDifficultyWithStairs"
+            formControlName="hasDifficultyWithStairs"
+            value="YES"
+          />
+          <label class="form-check-label">Yes</label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="radio"
+            id="hasDifficultyWithStairs"
+            formControlName="hasDifficultyWithStairs"
+            value="NO"
+          />
+          <label class="form-check-label">No</label>
+        </div>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="form-group">
+        <label
+          >Have you done physical activity in past 30 days - not including your
+          job?</label
+        >
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="radio"
+            id="isPhysicallyActive"
+            formControlName="isPhysicallyActive"
+            value="YES"
+          />
+          <label class="form-check-label">Yes</label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="radio"
+            id="isPhysicallyActive"
+            formControlName="isPhysicallyActive"
+            value="NO"
+          />
+          <label class="form-check-label">No</label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="col-6">
+      <div class="form-group">
+        <label>Do you consume fruit 1 or more times per day?</label>
+
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="radio"
+            id="eatsFruits"
+            formControlName="eatsFruits"
+            value="YES"
+          />
+          <label class="form-check-label">Yes</label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="radio"
+            id="eatsFruits"
+            formControlName="eatsFruits"
+            value="NO"
+          />
+          <label class="form-check-label">No</label>
+        </div>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="form-group">
+        <label>Do you consume vegetables 1 or more times per day?</label>
+
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="radio"
+            id="eatsVegetables"
+            formControlName="eatsVegetables"
+            value="YES"
+          />
+          <label class="form-check-label">Yes</label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="radio"
+            id="eatsVegetables"
+            formControlName="eatsVegetables"
+            value="NO"
+          />
+          <label class="form-check-label">No</label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <ng-container *ngIf="this.showSpinner; else noSpinner">
+    <button class="btn btn-primary w-100" disabled>
+      <span
+        class="spinner-border spinner-border-sm"
+        role="status"
+        aria-hidden="true"
+      ></span>
+      Calculating ...
+    </button>
+  </ng-container>
+  <ng-template #noSpinner>
+    <button
+      class="btn btn-primary w-100"
+      type="submit"
+      [disabled]="this.useDiabeticCompassForm.invalid"
+    >
+      Calculate
+    </button>
+  </ng-template>
+</form>
