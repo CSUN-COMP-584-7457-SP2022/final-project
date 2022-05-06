@@ -1,0 +1,82 @@
+<form [formGroup]="createAccountForm" (ngSubmit)="onSubmit()">
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="firstName">First Name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="firstName"
+        formControlName="firstName"
+        placeholder="First name"
+      />
+    </div>
+    <div class="form-group col-md-6">
+      <label for="lastName">Last Name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="lastName"
+        formControlName="lastName"
+        placeholder="Last name"
+      />
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="email">Email </label>
+    <input
+      class="form-control"
+      id="email"
+      type="email"
+      formControlName="email"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="password">Password </label>
+    <input
+      class="form-control"
+      id="password"
+      type="password"
+      formControlName="password"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="reenterPassword">Re-enter password </label>
+    <input
+      class="form-control"
+      id="reenterPassword"
+      type="password"
+      formControlName="reenterPassword"
+    />
+  </div>
+
+  <ng-container *ngIf="this.showSpinner; else noSpinner">
+    <button class="btn btn-primary w-100" disabled>
+      <span
+        class="spinner-border spinner-border-sm"
+        role="status"
+        aria-hidden="true"
+      ></span>
+      Creating ...
+    </button>
+  </ng-container>
+  <ng-template #noSpinner>
+    <button
+      class="btn btn-primary w-100"
+      type="submit"
+      [disabled]="!createAccountForm.valid"
+    >
+      Create account
+    </button>
+  </ng-template>
+</form>
+
+<!-- For debugging purposes -->
+<!-- <pre>
+  {{ createAccountForm.value | json }}
+</pre>
+<pre>
+  {{ createAccountForm.status }}
+</pre> -->

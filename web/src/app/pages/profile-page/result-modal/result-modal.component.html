@@ -1,0 +1,28 @@
+<div class="modal-header">
+  <h5 class="modal-title">Results</h5>
+  <button type="button" class="close" (click)="onClose()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <ng-container *ngIf="this.isAtRisk; else notAtRisk">
+    <h6 class="text-warning">You are at risk of developing diabetes.</h6>
+    <p>
+      Although our analysis suggests you are at risk of developing diabetes,
+      please seek professional medical advice!
+    </p>
+  </ng-container>
+
+  <ng-template #notAtRisk>
+    <h6 class="text-success">You are not at risk of developing diabetes.</h6>
+    <p>
+      Although our analysis suggests you are not at risk of developing diabetes,
+      please seek professional medical advice!
+    </p>
+  </ng-template>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-secondary" (click)="onClose()">
+    Close
+  </button>
+</div>

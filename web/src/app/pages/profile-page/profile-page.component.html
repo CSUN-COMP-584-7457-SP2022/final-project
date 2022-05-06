@@ -1,0 +1,76 @@
+<app-header></app-header>
+
+<app-alerts [alerts]="alerts"></app-alerts>
+
+<div class="container-fluid">
+  <ng-container *ngIf="this.userInfo$ | async as userInfo; else loading">
+    <h2>Hi, {{ userInfo.firstName }} {{ userInfo.lastName }}!</h2>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="nav nav-tabs card-header-tabs">
+          <div class="nav-item" *ngFor="let tab of PROFILE_TABS">
+            <a
+              class="nav-link"
+              style="cursor: pointer"
+              [ngClass]="{ active: isTabActive(tab.id) }"
+              (click)="setActiveTab(tab.id)"
+              *ngIf="!tab.hidden"
+              >{{ tab.name }}</a
+            >
+          </div>
+
+          <!-- HACK: Manually adding this as last item in nav header -->
+          <div class="nav-item ml-auto">
+            <a
+              class="nav-link"
+              style="cursor: pointer"
+              [ngClass]="{ active: isTabActive('useDiabeticCompass') }"
+              (click)="setActiveTab('useDiabeticCompass')"
+              >Use Diabetic Compass</a
+            >
+          </div>
+          <!-- End of HACK -->
+        </div>
+      </div>
+      <div class="card-body">
+        <ng-container *ngIf="activeTab.id === 'editName'">
+          <h5 class="card-title text-center">{{ activeTab.title }}</h5>
+          <app-edit-name-form
+            [userInfo]="userInfo"
+            (alerts)="showAlert($event)"
+          ></app-edit-name-form>
+        </ng-container>
+
+        <ng-container *ngIf="activeTab.id === 'resetPassword'">
+          <h5 class="card-title text-center">{{ activeTab.title }}</h5>
+          <app-reset-password-form
+            [userInfo]="userInfo"
+            (alerts)="showAlert($event)"
+          ></app-reset-password-form>
+        </ng-container>
+
+        <ng-container *ngIf="activeTab.id === 'useDiabeticCompass'">
+          <h5 class="card-title text-center">{{ activeTab.title }}</h5>
+          <app-use-diabetic-compass-form
+            (alerts)="showAlert($event)"
+          ></app-use-diabetic-compass-form>
+        </ng-container>
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-template #loading>
+    <div
+      class="d-flex flex-column justify-content-center align-items-center"
+      style="height: 100vh"
+    >
+      <div class="spinner-border" role="status"></div>
+    </div>
+  </ng-template>
+
+  <!-- For debugging purposes -->
+  <!-- <pre>
+    {{ userInfo$ | async | json }}
+  </pre> -->
+</div>

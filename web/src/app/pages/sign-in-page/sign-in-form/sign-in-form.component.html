@@ -1,0 +1,49 @@
+<form [formGroup]="signInForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input
+      class="form-control"
+      id="email"
+      type="email"
+      formControlName="email"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input
+      class="form-control"
+      id="password"
+      type="password"
+      formControlName="password"
+    />
+  </div>
+
+  <ng-container *ngIf="this.showSpinner; else noSpinner">
+    <button class="btn btn-primary w-100" disabled>
+      <span
+        class="spinner-border spinner-border-sm"
+        role="status"
+        aria-hidden="true"
+      ></span>
+      Signing in ...
+    </button>
+  </ng-container>
+  <ng-template #noSpinner>
+    <button
+      class="btn btn-primary w-100"
+      type="submit"
+      [disabled]="!signInForm.valid"
+    >
+      Sign in
+    </button>
+  </ng-template>
+</form>
+
+<!-- For debugging purposes -->
+<!-- <pre>
+  {{ signInForm.value | json }}
+</pre>
+<pre>
+  {{ signInForm.status }}
+</pre> -->
