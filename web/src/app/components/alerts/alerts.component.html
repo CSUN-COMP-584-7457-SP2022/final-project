@@ -1,0 +1,13 @@
+<div *ngFor="let item of alerts | keyvalue">
+  <alert
+    class="position-relative"
+    [type]="item.value.type"
+    [dismissible]="item.value.dismissible"
+    [dismissOnTimeout]="item.value.timeout"
+    (onClosed)="onCloseAlert(item.key)"
+    ><strong
+      >{{ item.value.type | uppercase
+      }}<span *ngIf="item.value.type !== 'info'">! </span></strong
+    >{{ item.value.msg }}</alert
+  >
+</div>
