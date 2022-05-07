@@ -7,7 +7,7 @@
     "-----NPM SCRIPTS-----": "",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "prettier src --write",
-    "dev": "DEBUG=tdc:* micro-dev",
+    "dev": "cross-env DEBUG=tdc:* micro-dev",
     "start": "micro",
     "-----UTILITY SCRIPTS-----": "",
     "scripts/load-test-data": "RUN_FUNCTION=scripts/load-test-data node ./scripts/load-test-data"
@@ -30,6 +30,7 @@
     "sequelize": "^6.17.0"
   },
   "devDependencies": {
+    "cross-env": "^7.0.3",
     "micro-dev": "^3.0.0",
     "prettier": "^2.6.0"
   },
